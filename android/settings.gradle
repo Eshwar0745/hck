@@ -1,5 +1,30 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+pluginManagement {
+	repositories {
+		// Aliyun mirrors can help in regions or networks with SSL issues to dl.google.com
+		maven { url = uri("https://maven.aliyun.com/repository/google") }
+		maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+		maven { url = uri("https://maven.aliyun.com/repository/public") }
+		// Explicit Google Maven mirrors to avoid SSL issues resolving dl.google.com
+		maven { url = uri("https://maven.google.com") }
+		google()
+		mavenCentral()
+		gradlePluginPortal()
+	}
+	includeBuild("../node_modules/@react-native/gradle-plugin")
+}
 plugins { id("com.facebook.react.settings") }
+// Prefer settings-defined repositories for dependency resolution
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+	repositories {
+		maven { url = uri("https://maven.aliyun.com/repository/google") }
+		maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+		maven { url = uri("https://maven.aliyun.com/repository/public") }
+		maven { url = uri("https://maven.google.com") }
+		google()
+		mavenCentral()
+	}
+}
 extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
 rootProject.name = 'Grrr'
 include ':app'
