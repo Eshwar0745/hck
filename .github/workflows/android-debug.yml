@@ -36,6 +36,9 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
 
+      - name: Make Gradle wrapper executable
+        run: chmod +x android/gradlew
+
       - name: Assemble Debug APK
         working-directory: android
         run: ./gradlew :app:assembleDebug --no-daemon
