@@ -1,3 +1,39 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# React Native / Android
+android/.gradle/
+android/.cxx/
+android/local.properties
+android/app/build/
+android/build/
+*.keystore
+
+# iOS
+ios/Pods/
+ios/build/
+*.xcuserdatad/
+*.xcworkspace/xcuserdata/
+
+# OS/Editor
+.DS_Store
+.vscode/
+.idea/
+*.iml
+
+# Misc
+dist/
+build/
+coverage/
+
+# Root-level Windows binaries (don’t commit local tools)
+/*.exe
+/*.dll
+/*.conf
+/*.txt
+/*.properties
 # OSX
 #
 .DS_Store
